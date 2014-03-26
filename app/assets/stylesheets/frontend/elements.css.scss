@@ -1,0 +1,106 @@
+// AUTH BTN
+#log_in_btn {
+  position: absolute;
+  top: 50px;
+  padding: 10px 15px;
+  background: #4479BA;
+  color: #FFF;
+  border: 1px solid rgba(228, 228, 228, 0.76);
+
+  &:hover { background: #386397; }
+  i.fa-vk { font-size: 30px; line-height: 42px; }
+}
+
+// SEARCH
+.cf:before, .cf:after {
+  content: "";
+  display: table;
+}
+.cf:after { clear:both; }
+.form-wrapper {
+  width: 470px;
+  padding: 5px;
+  margin: 50px auto 0;
+  background: #444;
+  background: rgba(0,0,0,.2);
+}
+.form-wrapper input {
+  width: 350px;
+  height: 40px;
+  padding: 10px;
+  float: left;
+  font: bold 15px 'lucida sans', 'trebuchet MS', 'Tahoma';
+  border: 0;
+  background: #eee;
+
+  &:focus {
+    outline: 0;
+    background: #fff;
+    box-shadow: 0 0 2px rgba(0,0,0,.8) inset;
+  }
+  &::-webkit-input-placeholder {
+    color: #999;
+    font-weight: normal;
+    font-style: italic;
+  }
+  &:-moz-placeholder {
+    color: #999;
+    font-weight: normal;
+    font-style: italic;
+  }
+  &:-ms-input-placeholder {
+    color: #999;
+    font-weight: normal;
+    font-style: italic;
+  }
+}
+.form-wrapper button {
+  overflow: visible;
+  position: relative;
+  float: right;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  height: 40px;
+  width: 110px;
+  font: bold 15px/40px 'lucida sans', 'trebuchet MS', 'Tahoma';
+  color: #fff;
+  text-transform: uppercase;
+  background: #d83c3c;
+  text-shadow: 0 -1px 0 rgba(0, 0 ,0, .3);
+
+  &:hover { background: #e54040; }
+  &:active, &:focus {
+    background: #c42f2f;
+    outline: 0;
+  }
+  &:before { /* left arrow */
+    content: '';
+    position: absolute;
+    border-width: 8px 8px 8px 0;
+    border-style: solid solid solid none;
+    border-color: transparent #d83c3c transparent;
+    top: 12px;
+    left: -6px;
+  }
+  &:hover:before { border-right-color: #e54040; }
+  &:focus:before,
+  &:active:before {
+    border-right-color: #c42f2f;
+  }
+  &::-moz-focus-inner { /* remove extra button spacing for Mozilla Firefox */
+    border: 0;
+    padding: 0;
+  }
+}
+
+// PLAYER
+.mejs-container {
+  margin: 0 auto;
+  width: 470px !important;
+  background-color: #CFCFCF !important;
+}
+
+.mejs-playlist {
+  width: 470px !important;
+}
