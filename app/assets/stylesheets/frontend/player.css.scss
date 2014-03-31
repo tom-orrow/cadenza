@@ -1,0 +1,189 @@
+.jp-audio {
+  margin-left: 100px;
+  position: relative;
+}
+
+.jp-controls {
+  position: relative;
+
+  li a {
+    cursor: pointer;
+    height: 26px;
+    position: absolute;
+    text-indent: -9999px;
+    z-index: 3;
+    width: 34px;
+    background: url(image_path("player_s.png")) no-repeat transparent;
+  }
+  .jp-prev {
+    width: 33px;
+    background-position: 0 -368px;
+    left: 0;
+  }
+  .jp-play {
+    background-position: 0 -184px;
+    left: 33px;
+  }
+  .jp-pause {
+    background-position: 0 -92px;
+    left: 33px;
+  }
+  .jp-next {
+    background-position: 0 0;
+    left: 65px;
+  }
+  .jp-stop {
+    background-position: 0 -276px;
+    right: 58px;
+    width: 33px;
+  }
+  .jp-repeat {
+    background-position: 0 -460px;
+    right: 91px;
+  }
+  .jp-repeat-off {
+    background-position: 0 -506px;
+    right: 91px;
+  }
+}
+.jp-current-time {
+  line-height: 26px;
+  min-height: 26px;
+  position: absolute;
+  right: 225px;
+  width: 46px;
+  z-index: 3;
+  background: url(image_path("player_s.png")) no-repeat transparent;
+  background-position: 0 -661px;
+  text-align: center;
+  text-shadow: 0 1px #F5F5F5;
+  font-size: 11px;
+}
+.jp-progress {
+  background: url(image_path("buttons.png")) repeat-x scroll 0 -459px transparent;
+  height: 26px;
+  position: absolute;
+  left: 99px;
+  right: 271px;
+  .jp-seek-bar {
+    cursor: pointer;
+    height: 25px;
+    background: transparent;
+    z-index: 4;
+    position: relative;
+    border: 0px solid #fff;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
+    position: absolute;
+    top: 0px;
+
+    .jp-title {
+      cursor: pointer;
+      color: #6A6A6A;
+      -webkit-touch-callout: none;
+      -webkit-user-select: none;
+      -khtml-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      position: absolute;
+      z-index: 3;
+      font-size: 11px;
+      font-family: Arial, Tahoma, sans-serif;
+      line-height: 1.5;
+      text-shadow: 0 1px rgba(255, 252, 252, 0.6);
+      left: 15px;
+      top: 4px;
+      height: 15px;
+      overflow: hidden;
+    }
+    .jp-play-bar, .jp-play-buffer {
+      background-color: rgba(84, 180, 255, 0.31);
+      height: 23px;
+      position: absolute;
+      top: 1px;
+    }
+    .jp-play-buffer { background: url(image_path("player_preloader.gif")) repeat-x transparent; }
+  }
+}
+.jp-volume-container {
+  height: 25px;
+  padding-top: 6px;
+  padding-left: 8px;
+  position: absolute;
+  right: 125px;
+  text-indent: -9999px;
+  top: 0px;
+  width: 100px;
+  z-index: 3;
+  background: url(image_path("player_s.png")) no-repeat transparent;
+  background-position: 0 -615px;
+
+  .jp-volume-bar {
+    cursor: pointer;
+    height: 9px;
+    background: #5B5B5B;
+    position: absolute;
+    border: 1px solid #E6E6E6;
+    width: 80px;
+    left: 10px;
+    top: 8px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    -webkit-box-shadow: 0 0 3px #343434 inset;
+    -moz-box-shadow: 0 0 3px #343434 inset;
+    box-shadow: 0 0 3px #343434 inset;
+
+    .jp-volume-bar-value {
+      height: 7px;
+      border-right: 1px solid rgb(139, 139, 139);
+      background: #222021;
+      position: absolute;
+    }
+  }
+}
+
+.slider-volume {
+  width: 73px;
+  min-height: 24px;
+
+  .dragger {
+    width: 13px;
+    height: 13px;
+    margin: 0 auto;
+    border: 1px solid rgba(255,255,255,0.6);
+    -moz-box-shadow: 0 0px 2px 1px rgba(0,0,0,0.5), 0 2px 5px 2px rgba(0,0,0,0.2);
+    -webkit-box-shadow: 0 0px 2px 1px rgba(0,0,0,0.5), 0 2px 5px 2px rgba(0,0,0,0.2);
+    box-shadow: 0 0px 2px 1px rgba(0,0,0,0.5), 0 2px 5px 2px rgba(0,0,0,0.2);
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background: #c5c5c5;
+    background: -moz-linear-gradient(90deg, rgba(180,180,180,1) 20%, rgba(230,230,230,1) 50%, rgba(180,180,180,1) 80%);
+    background: -webkit-radial-gradient(  50%   0%,  12% 50%, hsla(0,0%,100%,1) 0%, hsla(0,0%,100%,0) 100%),
+                -webkit-radial-gradient(  50% 100%, 12% 50%, hsla(0,0%,100%,.6) 0%, hsla(0,0%,100%,0) 100%),
+                -webkit-radial-gradient(  50% 50%, 200% 50%, hsla(0,0%,90%,1) 5%, hsla(0,0%,85%,1) 30%, hsla(0,0%,60%,1) 100%);
+  }
+  .track, .highlight-track {
+    height: 11px;
+    background: #787878;
+    background: -moz-linear-gradient(top, #787878, #a2a2a2);
+    background: -webkit-linear-gradient(top, #787878, #a2a2a2);
+    background: linear-gradient(top, #787878, #a2a2a2);
+    -moz-box-shadow: inset 0 2px 5px 1px rgba(0,0,0,0.15), 0 1px 0px 0px rgba(230,230,230,0.9), inset 0 0 1px 1px rgba(0,0,0,0.2);
+    -webkit-box-shadow: inset 0 2px 5px 1px rgba(0,0,0,0.15), 0 1px 0px 0px rgba(230,230,230,0.9), inset 0 0 1px 1px rgba(0,0,0,0.2);
+    box-shadow: inset 0 2px 5px 1px rgba(0,0,0,0.15), 0 1px 0px 0px rgba(230,230,230,0.9), inset 0 0 1px 1px rgba(0,0,0,0.2);
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+  }
+
+  .highlight-track {
+    background-color: #c5c5c5;
+    background: -moz-linear-gradient(top, #c5c5c5, #a2a2a2);
+    background: -webkit-linear-gradient(top, #c5c5c5, #a2a2a2);
+    background: linear-gradient(top, #c5c5c5, #a2a2a2);
+  }
+}

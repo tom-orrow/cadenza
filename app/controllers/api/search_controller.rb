@@ -7,6 +7,8 @@ module Api
         combined:  params[:q],
         results: 1
       )
+      puts '>>>>>>'
+      puts original
       if original.empty?
         render json: { error: 'Search result is empty.'}, status: :unprocessable_entity
       else
@@ -28,7 +30,7 @@ module Api
     end
 
     def suggest
-      songs = @vk.audio.search(q: params[:query], count: 30, sort: 2)
+      songs = @vk.audio.search(q: params[:query], count: 6, sort: 2)
       songs.shift
       songs = songs.map { |i| { value: i["artist"] + ' - ' + i["title"], data: i["aid"] }}
 

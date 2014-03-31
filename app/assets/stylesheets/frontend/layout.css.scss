@@ -1,11 +1,11 @@
 html, body { height: 100%; }
 body {
   background: #FFF asset-url('bg.png');
+  margin-top: 10px;
 }
 
 .container {
   height: 100%;
-  width: 800px;
   margin: 0 auto;
 }
 
@@ -13,3 +13,5 @@ body {
   height: 100%;
   text-align: center;
 }
+
+ul { list-style: none; }

@@ -1,0 +1,37 @@
+.navbar.navbar-default.navbar-fixed-top
+  .container
+    .navbar-header
+      = link_to 'Cadenza', '/', class: "navbar-brand"
+    #jquery_jplayer_1.jp-jplayer style="width: 0px; height: 0px;"
+      audio#jp_audio_0 preload="metadata" src="http://www.jplayer.org/audio/m4a/TSP-01-Cro_magnon_man.m4a"
+      / audio.player src="" controls="controls" data-current="" preload="auto" autoplay="false" autobuffer=""
+    #jp_container_1.jp-audio
+      .jp-type-single
+        .jp-gui.jp-interface
+          ul.jp-controls
+            li
+              a href="javascript:;" class="jp-prev" tabindex="1" prev
+            li
+              a href="javascript:;" class="jp-play" tabindex="1" play
+            li
+              a href="javascript:;" class="jp-pause" tabindex="1" style="display: none;" pause
+            li
+              a href="javascript:;" class="jp-next" tabindex="1" next
+            li
+              a href="javascript:;" class="jp-stop" tabindex="1" stop
+            li
+              a href="javascript:;" class="jp-repeat" tabindex="1" repeat
+            li
+              a href="javascript:;" class="jp-repeat-off" tabindex="1" style="display: none;" repeat off
+          .jp-progress
+            .jp-seek-bar
+              .jp-title
+              .jp-play-buffer style="width: 0%;"
+              .jp-play-bar style="width: 0%;"
+          .jp-volume-container
+            input type="text" data-slider="true" value="1" data-slider-highlight="true" data-slider-theme="volume"
+          .jp-current-time 00:00
+
+        .jp-no-solution style="display: none;"
+          span Update Required
+          | To play the media you will need to either update your browser to a recent version or update your Flash plugin.

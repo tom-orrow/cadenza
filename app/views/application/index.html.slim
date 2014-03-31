@@ -4,8 +4,8 @@
       = text_field_tag :q, nil, placeholder: 'Search...', required: true
       = button_tag 'Search', type: 'submit', class: 'btn btn-primary'
     #search_result
-    audio.player src="" controls="controls" data-current="" preload="auto" autoplay="false" autobuffer=""
-
+      .loading-circle
+      ul
   - else
     = link_to auth_api_session_index_path, id: 'log_in_btn' do
       i.fa.fa-vk

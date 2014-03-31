@@ -9,9 +9,12 @@ prepare_search_ajax = () ->
     deferRequestBy: 300
   }
 
-  $("form#search").on("ajax:success", (e, data, status, xhr) ->
-    $('#search_result').html('')
-    $('#search_result').append('<ul></ul>')
+  $("form#search").bind("ajax:beforeSend", (e, request, options) ->
+    $('#search_result ul').html('')
+    $('.loading-circle').show()
+  ).on("ajax:success", (e, data, status, xhr) ->
+    $('.loading-circle').hide()
+    $('#search_result ul').html('')
     $.each data.songs, (index, song) ->
       $('#search_result ul').append(
         '<li>' +
@@ -25,7 +28,11 @@ prepare_search_ajax = () ->
 
 prepare_search_result_actions = () ->
   $("#search_result ul li a").click ->
-    $("audio.player").attr('src', $(this).attr('data-song'))
-    $("audio.player").attr('data-current', $(this).attr('data-track'))
-    $("audio.player").attr('autoplay', "true")
+    $('.jp-title').html($(this).attr('data-artist') + ' - ' + $(this).attr('data-title'))
+    $(this).parent().siblings('li').removeClass('active')
+    $(this).parent().addClass('active')
+    $("#jquery_jplayer_1").jPlayer("setMedia", {
+      mp3: $(this).attr('data-song'),
+    }).jPlayer("play")
     return false
+
