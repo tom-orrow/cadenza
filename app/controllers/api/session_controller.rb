@@ -3,7 +3,7 @@ module Api
     def auth
       srand
       session[:state] ||= Digest::MD5.hexdigest(rand.to_s)
-      redirect_to VkontakteApi.authorization_url(scope: [:friends, :groups, :offline, :notify], state: session[:state])
+      redirect_to VkontakteApi.authorization_url(scope: [:audio], state: session[:state])
     end
 
     def callback

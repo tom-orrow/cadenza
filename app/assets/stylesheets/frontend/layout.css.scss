@@ -3,7 +3,12 @@ body {
   background: #FFF asset-url('bg.png');
 }
 
-.container { height: 100%; }
+.container {
+  height: 100%;
+  width: 800px;
+  margin: 0 auto;
+}
+
 .content {
   height: 100%;
   text-align: center;

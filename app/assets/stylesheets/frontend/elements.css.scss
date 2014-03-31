@@ -32,6 +32,8 @@
   font: bold 15px 'lucida sans', 'trebuchet MS', 'Tahoma';
   border: 0;
   background: #eee;
+  border-bottom-left-radius: 4px;
+  border-top-left-radius: 4px;
 
   &:focus {
     outline: 0;
@@ -66,41 +68,48 @@
   font: bold 15px/40px 'lucida sans', 'trebuchet MS', 'Tahoma';
   color: #fff;
   text-transform: uppercase;
-  background: #d83c3c;
   text-shadow: 0 -1px 0 rgba(0, 0 ,0, .3);
+  border-bottom-left-radius: 0px;
+  border-top-left-radius: 0px;
 
-  &:hover { background: #e54040; }
-  &:active, &:focus {
-    background: #c42f2f;
-    outline: 0;
-  }
   &:before { /* left arrow */
     content: '';
     position: absolute;
     border-width: 8px 8px 8px 0;
     border-style: solid solid solid none;
-    border-color: transparent #d83c3c transparent;
+    border-color: transparent #428bca transparent;
     top: 12px;
-    left: -6px;
+    left: -7px;
   }
-  &:hover:before { border-right-color: #e54040; }
-  &:focus:before,
-  &:active:before {
-    border-right-color: #c42f2f;
-  }
+  &:hover:before { border-right-color: #3276b1; }
   &::-moz-focus-inner { /* remove extra button spacing for Mozilla Firefox */
     border: 0;
     padding: 0;
   }
 }
 
-// PLAYER
-.mejs-container {
-  margin: 0 auto;
-  width: 470px !important;
-  background-color: #CFCFCF !important;
+.autocomplete-suggestions { border: 1px solid #999; background: #FFF; cursor: default; overflow: auto; -webkit-box-shadow: 1px 4px 3px rgba(50, 50, 50, 0.64); -moz-box-shadow: 1px 4px 3px rgba(50, 50, 50, 0.64); box-shadow: 1px 4px 3px rgba(50, 50, 50, 0.64); }
+.autocomplete-suggestion { padding: 2px 5px; white-space: nowrap; overflow: hidden; }
+.autocomplete-selected { background: #F0F0F0; }
+.autocomplete-suggestions strong { font-weight: normal; color: #3399FF; }
+
+// SEARCH RESULT
+#search_result ul {
+  list-style: none;
+  text-align: left;
+  width: 470px;
+  margin-left: 150px;
+  padding: 0;
+
+  li {
+    background-color: #C7D6E2;
+    padding: 10px;
+    margin: 5px;
+  }
 }
 
-.mejs-playlist {
-  width: 470px !important;
+// PLAYER
+audio.player {
+  width: 300px;
+  height: 37px;
 }

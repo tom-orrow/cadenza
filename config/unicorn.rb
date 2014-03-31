@@ -2,7 +2,7 @@
 worker_processes 1
 working_directory @dir
 
-timeout 30
+timeout 300
 
 listen "#{@dir}tmp/sockets/unicorn.sock", backlog: 64
 

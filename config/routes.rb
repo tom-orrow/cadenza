@@ -8,7 +8,10 @@ Cadenza::Application.routes.draw do
       end
     end
     resources :search, only: [] do
-      collection { get :complete; }
+      collection do
+        get :complete
+        get :suggest
+      end
     end
   end
 

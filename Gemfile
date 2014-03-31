@@ -4,6 +4,7 @@ gem 'rails', '4.0.3'
 
 group :development do
   gem 'better_errors'
+  gem 'binding_of_caller'
   gem 'awesome_print'
   gem 'quiet_assets'
   gem 'bullet'
@@ -15,12 +16,9 @@ group :production do
   gem 'rails_12factor'
 end
 
-gem 'multipart-post', '1.2.0'
-
-gem 'vkontakte_api', github:'tom-orrow/vkontakte_api'
-gem 'faraday_middleware', github: 'lostisland/faraday_middleware', branch: 'faraday-0.9'
-gem 'faraday_middleware-parse_oj', github:'tom-orrow/faraday_middleware-parse_oj'
-gem 'echowrap', github: 'timcase/echowrap'
+gem 'vkontakte_api', github:'leonko/vkontakte_api', branch: 'faraday-0.9'
+gem 'echowrap', github:'timcase/echowrap'
+gem 'nokogiri'
 gem 'slim'
 gem 'font-awesome-sass'
 gem 'sass-rails', '~> 4.0.0'
