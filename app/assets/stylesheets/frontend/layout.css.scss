@@ -1,7 +1,57 @@
+$font_family_1: BebasNeue, sans-serif;
+$font_family_2: Adele, sans-serif;
+$font_family_3: Economica, sans-serif;
+$font_family_4: Brandon, sans-serif;
+$font_family_5: GPB, sans-serif;
+
+@font-face {
+  font: {
+     family: 'BebasNeue';
+     weight: 'normal';
+     style: 'normal';
+  }
+  src: asset-url('BebasNeue.otf', font);
+}
+
+@font-face {
+  font: {
+     family: 'Adele';
+     weight: 'normal';
+     style: 'normal';
+  }
+  src: asset-url('Adele.woff', font);
+}
+
+@font-face {
+  font: {
+     family: 'Economica';
+     weight: 'normal';
+     style: 'normal';
+  }
+  src: asset-url('Economica.woff', font);
+}
+
+@font-face {
+  font: {
+     family: 'Brandon';
+     weight: 'normal';
+     style: 'normal';
+  }
+  src: asset-url('Brandon_bld.otf', font);
+}
+
+@font-face {
+  font: {
+     family: 'GPB';
+     weight: 'normal';
+     style: 'normal';
+  }
+  src: asset-url('GPB.otf', font);
+}
+
 html, body { height: 100%; }
 body {
   background: #FFF asset-url('bg.png');
-  margin-top: 10px;
 }
 
 .container {
@@ -9,9 +59,20 @@ body {
   margin: 0 auto;
 }
 
-.content {
-  height: 100%;
-  text-align: center;
+ul { list-style: none; }
+.navbar-fixed-top {
+  min-height: 46px;
+  height: 46px;
+
+  i.fa.fa-headphones {
+    line-height: 28px;
+    font-size: 30px;
+    position: absolute;
+    top: 10px;
+  }
 }
 
-ul { list-style: none; }
+h4 {
+  font-family: $font_family_3;
+  color: #292929;
+}

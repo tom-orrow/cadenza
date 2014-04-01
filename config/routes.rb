@@ -10,7 +10,7 @@ Cadenza::Application.routes.draw do
     resources :search, only: [] do
       collection do
         get :complete
-        get :suggest
+        get :search_vk
       end
     end
   end

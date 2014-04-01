@@ -29,12 +29,11 @@ module Api
       end
     end
 
-    def suggest
-      songs = @vk.audio.search(q: params[:query], count: 6, sort: 2)
+    def search_vk
+      count = 20
+      songs = @vk.audio.search(q: params[:q], count: count, sort: 2, offset: (params[:search_page].to_i * count))
       songs.shift
-      songs = songs.map { |i| { value: i["artist"] + ' - ' + i["title"], data: i["aid"] }}
-
-      render json: { query: params[:query], suggestions: songs }
+      render json: { songs: songs }
     end
 
     private

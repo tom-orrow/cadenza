@@ -1,0 +1,24 @@
+.loading-circle
+= form_tag search_vk_api_search_index_path, id: 'search', remote:true, method: :get, class: 'form-wrapper cf' do
+  i.fa.fa-search
+  = hidden_field_tag 'search_page', '0'
+  = text_field_tag :q, nil, placeholder: 'Search...', required: true
+
+.content
+  .audio_content
+    .container
+      .row
+        .col-xs-8
+          .box-header
+            h4 Search
+          .main-box
+            ul.connected-sortable
+              li
+        .col-xs-4
+          .box-header
+            h4 Playlist
+          .playlist-box
+            ul.connected-sortable
+              li
+
+
