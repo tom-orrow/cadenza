@@ -45,6 +45,10 @@ prepare_controls = () ->
     play_next()
     return false
 
+  $('.jp-shuffle').click () ->
+    $(this).toggleClass("disable")
+    return false
+
   # Volume
   $("[data-slider]").simpleSlider("setValue", volume)
   $("[data-slider]").bind("slider:ready slider:changed", (event, data) ->
