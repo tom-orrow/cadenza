@@ -6,8 +6,7 @@ $(document).ready () ->
     preload: "auto",
     volume: volume,
     ended: () ->
-      if $('.jp-repeat-off').is(':visible')
-        play_next()
+      play_next()
   })
   $(".jp-seek-bar").slider({
     start: (event, ui) ->
@@ -57,15 +56,17 @@ prepare_controls = () ->
   )
 
 play_next = () ->
-  next = $(".main-box ul li.active").next('li').children('a').first()
+  playlist = $(".audio-content li.active").parent()
+  next = playlist.find("li.active").next('li').children('a').first()
   if next.length == 0
-    next = $(".main-box ul ul li").first().children('a').first()
+    next = playlist.find("li > a").first()
   set_track(next)
 
 play_prev = () ->
-  prev = $(".main-box ul li.active").prev('li').children('a').first()
+  playlist = $(".audio-content li.active").parent()
+  prev = playlist.find("li.active").prev('li').children('a').first()
   if prev.length == 0
-    prev = $(".main-box ul li").last().children('a').first()
+    prev = playlist.find("li > a").last()
   set_track(prev)
 
 set_track = (link) ->

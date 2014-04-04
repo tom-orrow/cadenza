@@ -3,23 +3,21 @@
   = hidden_field_tag 'search_page', '0'
   = text_field_tag :q, nil, placeholder: 'Search...', required: true
 
-= link_to '/', id: "btn_search_simillar" do
+# = link_to '/', id: "btn_search_simillar" do
   i.fa.fa-sitemap
 .content
-  .audio_content
+  .audio-content
     .container
       .row
         .col-xs-8
           .box-header
             h4 Search
           .main-box
-            ul.connected-sortable
+            ul
               li
         .col-xs-4
           .box-header
             h4 Playlist
           .playlist-box
-            ul.connected-sortable
+            ul
               li
-
-

@@ -52,6 +52,7 @@ $font_family_5: GPB, sans-serif;
 html, body { height: 100%; }
 body {
   background: #FFF asset-url('bg.png');
+  overflow: hidden;
 }
 
 .container {

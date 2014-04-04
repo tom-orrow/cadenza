@@ -1,6 +1,5 @@
 $(document).ready () ->
   prepare_search_ajax()
-  prepare_search_result_actions()
   prepare_scrollbars()
   prepare_lists()
 
@@ -8,10 +7,30 @@ search_page = 0
 loading_more_songs = false
 
 prepare_lists = () ->
+  $(".playlist-box .mCSB_container").sortable({
+    axis: "y",
+    receive: (e, ui) ->
+      if ui.item.hasClass('active')
+        $('.playlist-box li.active').removeClass('active')
+  })
+
+  $(".main-box .mCSB_container li").draggable({
+    connectToSortable: ".playlist-box .mCSB_container",
+    appendTo: ".audio-content",
+    cursorAt: { left: 50 },
+    scroll: false,
+    helper: (e, ui) ->
+      return $(this).clone().css('width', $(".playlist-box .mCSB_container li:first-child").width()).removeClass('active')
+    ,
+    stop: () ->
+      prepare_playlists_actions()
+      update_scrollbar($(".playlist-box ul"))
+  }).disableSelection()
 
 prepare_scrollbars = () ->
   $(".main-box ul").mCustomScrollbar({
     scrollInertia: 0,
+    alwaysShowScrollbar: true,
     callbacks: {
       onTotalScroll: () ->
         load_more_songs()
@@ -48,7 +67,7 @@ prepare_search_ajax = () ->
       add_songs_to_main_list(data.songs)
       $('.main-box ul').mCustomScrollbar("scrollTo", "top")
       $('.loading-circle').hide()
-    prepare_search_result_actions()
+      prepare_playlists_actions()
   )
 
 add_songs_to_main_list = (songs) ->
@@ -68,10 +87,10 @@ send_search_request = (page = 0) ->
   $("form#search input#search_page").val(page)
   $("form#search").submit()
 
-prepare_search_result_actions = () ->
-  $(".main-box ul li a").click ->
+prepare_playlists_actions = () ->
+  $(".audio-content ul li a").click ->
     $('.jp-title').html($(this).attr('data-artist') + ' - ' + $(this).attr('data-title'))
-    $(this).parent().siblings('li').removeClass('active')
+    $(".audio-content ul li.active").removeClass('active')
     $(this).parent().addClass('active')
     $("#jquery_jplayer_1").jPlayer("setMedia", {
       mp3: $(this).attr('data-song'),
@@ -80,6 +99,7 @@ prepare_search_result_actions = () ->
 
 update_scrollbar = (parent) ->
   parent.mCustomScrollbar("update");
+  prepare_lists()
 
 load_more_songs = () ->
   return false if loading_more_songs || search_page == -1
