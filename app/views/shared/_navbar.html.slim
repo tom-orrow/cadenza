@@ -10,19 +10,26 @@
         .jp-gui.jp-interface
           ul.jp-controls
             li
-              a href="javascript:;" class="jp-prev" tabindex="1" prev
+              = link_to "#", class:"jp-prev" do
+                i.fa.fa-backward
             li
-              a href="javascript:;" class="jp-play" tabindex="1" play
+              = link_to "#", class:"jp-play" do
+                i.fa.fa-play
             li
-              a href="javascript:;" class="jp-pause" tabindex="1" style="display: none;" pause
+              = link_to "#", class:"jp-pause" do
+                i.fa.fa-pause
             li
-              a href="javascript:;" class="jp-next" tabindex="1" next
+              = link_to "#", class:"jp-next" do
+                i.fa.fa-forward
             li
-              a href="javascript:;" class="jp-stop" tabindex="1" stop
+              = link_to "#", class:"jp-stop" do
+                i.fa.fa-stop
             li
-              a href="javascript:;" class="jp-repeat" tabindex="1" repeat
+              = link_to "#", class:"jp-repeat" do
+                i.fa.fa-repeat
             li
-              a href="javascript:;" class="jp-repeat-off" tabindex="1" style="display: none;" repeat off
+              = link_to "#", class:"jp-repeat-off" do
+                i.fa.fa-repeat
           .jp-progress
             .jp-seek-bar
               .jp-title ondragstart="return false;" ondrop="return false;"
