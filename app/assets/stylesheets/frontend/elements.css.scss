@@ -128,18 +128,18 @@ a#btn_search_simillar {
   }
   .ui-sortable { min-height: 100%; }
   li.ui-draggable { list-style: none; }
-  li { position: relative; }
-  li a {
+  li[data-song] {
     @include box-shadow(0px 1px 1px 0 rgb(224, 224, 224));
+    position: relative;
     background-color: #fff;
+    width: 100%;
     padding: 8px 10px;
+    font-size: 12px;
+    color: #292929;
     margin-bottom: 3px;
     cursor: pointer;
-    color: #292929;
-    width: 100%;
-    display: block;
-    font-size: 12px;
 
+    a { font-weight: bold; }
     .fa-volume-down {
       position: absolute;
       right: 16px;
@@ -148,12 +148,12 @@ a#btn_search_simillar {
       color: rgb(153, 153, 153);
       display: none;
     }
+    &:hover, &.active {
+      background-color: rgba(202, 197, 255, 0.22);
+      text-decoration: none;
+    }
   }
-  li a:hover, li.active a {
-    background-color: rgba(202, 197, 255, 0.22);
-    text-decoration: none;
-  }
-  li.active a .fa-volume-down { display: block; }
+  li.active .fa-volume-down { display: block; }
   li .ajax-loader-horizontal {
     display: block;
     background: url(image_path('ajax-loader_horizontal.gif'));

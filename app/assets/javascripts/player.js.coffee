@@ -57,22 +57,24 @@ prepare_controls = () ->
 
 play_next = () ->
   playlist = $(".audio-content li.active").parent()
-  next = playlist.find("li.active").next('li').children('a').first()
+  next = playlist.find("li.active").next('li:has(a)').first()
   if next.length == 0
-    next = playlist.find("li > a").first()
-  set_track(next)
+    next = playlist.find("li:has(a)").first()
+  unless next.length == 0
+    set_track(next)
 
 play_prev = () ->
   playlist = $(".audio-content li.active").parent()
-  prev = playlist.find("li.active").prev('li').children('a').first()
+  prev = playlist.find("li.active").prev('li:has(a)').first()
   if prev.length == 0
-    prev = playlist.find("li > a").last()
-  set_track(prev)
+    prev = playlist.find("li:has(a)").last()
+  unless prev.length == 0
+    set_track(prev)
 
-set_track = (link) ->
-  $('.jp-title').html(link.attr('data-artist') + ' - ' + link.attr('data-title'))
-  link.parent().siblings('li').removeClass('active')
-  link.parent().addClass('active')
+set_track = (li) ->
+  $('.jp-title').html(li.attr('data-artist') + ' - ' + li.attr('data-title'))
+  li.siblings('li').removeClass('active')
+  li.addClass('active')
   $("#jquery_jplayer_1").jPlayer("setMedia", {
-    mp3: link.attr('data-song'),
+    mp3: li.attr('data-song'),
   }).jPlayer("play")

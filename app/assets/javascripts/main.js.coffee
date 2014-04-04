@@ -18,6 +18,7 @@ prepare_lists = () ->
     connectToSortable: ".playlist-box .mCSB_container",
     appendTo: ".audio-content",
     cursorAt: { left: 50 },
+    distance: 10,
     scroll: false,
     helper: (e, ui) ->
       return $(this).clone().css('width', $(".playlist-box .mCSB_container li:first-child").width()).removeClass('active')
@@ -25,6 +26,7 @@ prepare_lists = () ->
     stop: () ->
       prepare_playlists_actions()
       update_scrollbar($(".playlist-box ul"))
+      prepare_lists()
   }).disableSelection()
 
 prepare_scrollbars = () ->
@@ -44,7 +46,6 @@ prepare_search_ajax = () ->
   send_search_timeout = null;
   $("form#search input#q").on('input', () ->
     clearTimeout(send_search_timeout)
-    $('.main-box .empty-results').hide()
     if $("form#search input#q").val().length > 2
       send_search_timeout = setTimeout( () ->
         clear_results()
@@ -67,18 +68,19 @@ prepare_search_ajax = () ->
       add_songs_to_main_list(data.songs)
       $('.main-box ul').mCustomScrollbar("scrollTo", "top")
       $('.loading-circle').hide()
-      prepare_playlists_actions()
+    prepare_playlists_actions()
   )
 
 add_songs_to_main_list = (songs) ->
   $.each songs, (index, song) ->
     $('.main-box ul .mCSB_container').append(
-      '<li>' +
-        '<a href="#" data-track="' + index + '" data-song="' + song.url + '" data-artist="' + song.artist + '"' +
-        ' data-title="' + song.title + '"><b>' + song.artist + '</b> - ' + song.title + '<i class="fa fa-volume-down"></i></a>' +
+      '<li data-song="' + song.url + '" data-artist="' + song.artist + '" data-title="' + song.title + '">' +
+        '<a href="#">' + song.artist + '</a>' +
+        ' - ' + song.title + '<i class="fa fa-volume-down"></i>' +
       '</li>'
     )
   update_scrollbar($('.main-box ul'))
+  prepare_lists()
 
 clear_results = () ->
   $('.main-box ul .mCSB_container').html('')
@@ -88,18 +90,24 @@ send_search_request = (page = 0) ->
   $("form#search").submit()
 
 prepare_playlists_actions = () ->
-  $(".audio-content ul li a").click ->
+  $(".audio-content ul li").click ->
     $('.jp-title').html($(this).attr('data-artist') + ' - ' + $(this).attr('data-title'))
     $(".audio-content ul li.active").removeClass('active')
-    $(this).parent().addClass('active')
+    $(this).addClass('active')
     $("#jquery_jplayer_1").jPlayer("setMedia", {
       mp3: $(this).attr('data-song'),
     }).jPlayer("play")
+
+  $(".audio-content ul li a").click ->
+    $('form#search input#q').val($(this).html())
+    clear_results()
+    search_page = 0
+    $('.loading-circle').show()
+    send_search_request()
     return false
 
 update_scrollbar = (parent) ->
   parent.mCustomScrollbar("update");
-  prepare_lists()
 
 load_more_songs = () ->
   return false if loading_more_songs || search_page == -1
@@ -108,6 +116,7 @@ load_more_songs = () ->
   search_page = search_page + 1
   $('.main-box ul .mCSB_container').append('<li><div class="ajax-loader-horizontal"></div></li>')
   update_scrollbar($('.main-box ul'))
+  prepare_lists()
   send_search_request(search_page)
 
 
