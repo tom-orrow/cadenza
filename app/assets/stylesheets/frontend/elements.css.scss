@@ -130,14 +130,15 @@ a#btn_search_simillar {
   li.ui-draggable { list-style: none; }
   li { position: relative; }
   li a {
-    @include box-shadow(0px 1px 2px 0 rgb(224, 224, 224));
+    @include box-shadow(0px 1px 1px 0 rgb(224, 224, 224));
     background-color: #fff;
-    padding: 10px;
+    padding: 8px 10px;
     margin-bottom: 3px;
     cursor: pointer;
     color: #292929;
     width: 100%;
     display: block;
+    font-size: 12px;
 
     .fa-volume-down {
       position: absolute;
