@@ -14,8 +14,13 @@ module Api
       @vk = VkontakteApi.authorize(code: params[:code])
       session[:token] = @vk.token
       session[:vk_id] = @vk.user_id
+      session[:expires_at] = @vk.expires_at
 
       redirect_to root_url
+    end
+
+    def self.expired? (expires_at)
+      expires_at && expires_at < Time.now
     end
   end
 end

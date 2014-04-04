@@ -29,7 +29,8 @@
   width: 470px;
   padding: 5px;
   background: #444;
-  background: rgba(112,112,112,.2);
+  background: rgba(202, 197, 255, 0.29);
+  border-radius: 6px;
 }
 .form-wrapper .fa-search {
   position: absolute;
@@ -46,7 +47,6 @@
   float: left;
   font: bold 15px 'lucida sans', 'trebuchet MS', 'Tahoma';
   border: 0;
-  background: #eee;
   color: #575757;
 
   &:focus {
@@ -80,6 +80,22 @@
   right: 10px;
   z-index: 9999;
   display: none;
+}
+a#btn_search_simillar {
+  position: absolute;
+  top: 66px;
+  left: 50%;
+  margin-left: 255px;
+  padding: 10px 14px;
+  background-color: #f8f8f8;
+  border: 1px solid #e7e7e7;
+  color: rgb(119, 119, 119);
+  font-size: 20px;
+
+  &:hover {
+    color: #5e5e5e;
+    border: 1px solid #C9C9C9;
+  }
 }
 
 // CONTENT

@@ -12,6 +12,6 @@ class ApplicationController < ActionController::Base
   end
 
   def logged_in?
-    session[:token].present?
+    session[:expires_at].present? && !Api::SessionController.expired?(session[:expires_at])
   end
 end
