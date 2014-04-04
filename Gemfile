@@ -28,5 +28,5 @@ gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'jbuilder', '~> 1.2'
 gem 'unicorn'
-gem 'compass-rails', "~> 2.0.alpha.0"
+gem 'compass-rails', github: 'Compass/compass-rails'
 gem 'newrelic_rpm'

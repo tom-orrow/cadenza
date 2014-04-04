@@ -1,4 +1,12 @@
 GIT
+  remote: git://github.com/Compass/compass-rails.git
+  revision: ab84a09c0b84cc979e78540be7bfcb386ef5047d
+  specs:
+    compass-rails (2.0.0.pre)
+      compass (>= 0.12.2)
+      sprockets (<= 2.11.0)
+
+GIT
   remote: git://github.com/leonko/vkontakte_api.git
   revision: e3a5c1810c36c41722df8e37ba2e0d7c144b7380
   branch: faraday-0.9
@@ -74,8 +82,6 @@ GEM
       chunky_png (~> 1.2)
       fssm (>= 0.2.7)
       sass (~> 3.2.17)
-    compass-rails (2.0.alpha.0)
-      compass (>= 0.12.2, < 0.14)
     debug_inspector (0.0.2)
     erubis (2.7.0)
     execjs (2.0.2)
@@ -204,7 +210,7 @@ DEPENDENCIES
   bullet
   capistrano
   coffee-rails (~> 4.0.0)
-  compass-rails (~> 2.0.alpha.0)
+  compass-rails!
   echowrap!
   font-awesome-sass
   jbuilder (~> 1.2)
